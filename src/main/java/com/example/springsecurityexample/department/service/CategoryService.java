@@ -16,4 +16,12 @@ public class CategoryService {
     public Category findByCatName(String catName){
        return categoryRepo.findByCatName(catName).orElseThrow( () -> new EntityNotFoundException("please give correct category name"));
     }
+
+    public Category saveCategory(Category category){
+        return categoryRepo.save(category);
+    }
+
+    public Category findByCatID(Long catId){
+        return categoryRepo.findById(catId).get();
+    }
 }
