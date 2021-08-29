@@ -2,15 +2,17 @@ package com.example.springsecurityexample.department.controller;
 
 import com.example.springsecurityexample.department.model.Category;
 import com.example.springsecurityexample.department.service.CategoryService;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class CategoryResource {
 
-    private final CategoryService categoryService;
+    private CategoryService categoryService;
 
     @GetMapping(path = "/getByCatName/{catName}")
     public ResponseEntity<Category> findByCatName(@RequestParam String catName){

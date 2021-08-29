@@ -2,6 +2,7 @@ package com.example.springsecurityexample.department.model;
 
 import com.example.springsecurityexample.product.model.Product;
 import lombok.*;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +20,6 @@ public class Category {
     private long catId;
     private String catName;
     private String catDescription;
-    @OneToMany(mappedBy = "catId")
-    private List<Product> products;
+//    @OneToMany(mappedBy = "category")
+//    private List<Product> products;
 }

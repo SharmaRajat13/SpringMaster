@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/admin/user")
 public class UserResource {
 
     private final CustomUserDetailsService customUserDetailsService;
@@ -19,7 +19,12 @@ public class UserResource {
 
     @PostMapping("/save")
     public ResponseEntity<User> saveUser(@RequestBody User user){
-        return ResponseEntity.ok(customUserDetailsService.saveUser(user));
+        return ResponseEntity.ok(customUserDetailsService.saveUser(user).get());
+    }
+
+    @PostMapping("/save-all")
+    public ResponseEntity<List<User>> saveUser(@RequestBody List<User> users){
+        return ResponseEntity.ok(customUserDetailsService.saveAll(users));
     }
 
     @GetMapping("/{id}")
